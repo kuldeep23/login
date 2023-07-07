@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 75),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,19 +29,29 @@ class HomePage extends StatelessWidget {
                   FadeAnimation(
                       1,
                       Text(
-                        "Welcome",
+                        "Welcome to SECURE GATES",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 30),
+                            fontWeight: FontWeight.bold, fontSize: 25),
                       )),
+                  /*SizedBox(
+                    height: 5,
+                  ),
+                  FadeAnimation(
+                      1,
+                      Text(
+                        "Secure Gates",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 25),
+                      )),*/
                   SizedBox(
                     height: 20,
                   ),
                   FadeAnimation(
                       1.2,
                       Text(
-                        "Automatic identity verification which enables you to verify your identity",
+                        "Your Society, Our Expertise",
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.grey[700], fontSize: 15),
+                        style: TextStyle(color: Colors.grey[700], fontSize: 17),
                       )),
                 ],
               ),
@@ -49,7 +59,7 @@ class HomePage extends StatelessWidget {
                   1.4,
                   Container(
                     child: SizedBox(
-                      height: 250,
+                      height: 300,
                       child: OverflowBox(
                         child: Lottie.network(
                             'https://assets5.lottiefiles.com/packages/lf20_KU3FGB47d6.json'),
