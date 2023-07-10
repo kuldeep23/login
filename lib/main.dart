@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
                             fontWeight: FontWeight.bold, fontSize: 25),
                       )),*/
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   FadeAnimation(
                       1.2,
@@ -112,7 +112,7 @@ class HomePage extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) => SignupPage()));
                           },
-                          color: Colors.deepOrange,
+                          color: Color(0xffFF6663),
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50)),
