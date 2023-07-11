@@ -4,6 +4,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatelessWidget {
+  final TextEditingController userController = TextEditingController();
+  final TextEditingController pwdController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     bool passwordVisible = false;
@@ -37,7 +39,7 @@ class LoginPage extends StatelessWidget {
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      FadeInUp(
+                      FadeInDown(
                           delay: Duration(milliseconds: 100),
                           duration: Duration(milliseconds: 1500),
                           child: Text(
@@ -48,7 +50,7 @@ class LoginPage extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      FadeInUp(
+                      FadeInDown(
                           delay: Duration(milliseconds: 200),
                           duration: Duration(milliseconds: 1500),
                           child: Text(
@@ -62,10 +64,12 @@ class LoginPage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 25),
                     child: Column(
                       children: <Widget>[
+                        //Username
                         FadeInUp(
                           delay: Duration(milliseconds: 300),
                           duration: Duration(milliseconds: 1500),
                           child: TextField(
+                            controller: userController,
                             decoration: InputDecoration(
                                 labelText: "Username",
                                 labelStyle: TextStyle(
@@ -94,11 +98,13 @@ class LoginPage extends StatelessWidget {
                         SizedBox(
                           height: 25,
                         ),
+                        //Password
                         FadeInUp(
                           delay: Duration(milliseconds: 400),
                           duration: Duration(milliseconds: 1500),
                           child: TextField(
-                            obscureText: passwordVisible,
+                            controller: pwdController,
+                            obscureText: true,
                             decoration: InputDecoration(
                                 labelText: "Password",
                                 labelStyle: TextStyle(
@@ -132,6 +138,7 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  //LoginButton
                   FadeInUp(
                       delay: Duration(milliseconds: 500),
                       duration: Duration(milliseconds: 1500),
@@ -150,7 +157,10 @@ class LoginPage extends StatelessWidget {
                           child: MaterialButton(
                             minWidth: double.infinity,
                             height: 60,
-                            onPressed: () {},
+                            onPressed: () {
+                              print(userController.text);
+                              print(pwdController.text);
+                            },
                             color: Color(0xffFF6663),
                             elevation: 0,
                             shape: RoundedRectangleBorder(
