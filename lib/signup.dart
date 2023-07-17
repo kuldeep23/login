@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:login/login.dart';
 
 class SignupPage extends StatelessWidget {
   final TextEditingController userController = TextEditingController();
@@ -9,6 +11,11 @@ class SignupPage extends StatelessWidget {
   final TextEditingController addressController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final TapGestureRecognizer _gestureRecognizer = TapGestureRecognizer()
+      ..onTap = () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => LoginPage()));
+      };
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
@@ -31,7 +38,7 @@ class SignupPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 25),
-            height: MediaQuery.of(context).size.height / 1.6,
+            height: MediaQuery.of(context).size.height / 1.5,
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -250,20 +257,28 @@ class SignupPage extends StatelessWidget {
                         ),
                       ),
                     )),
+                SizedBox(
+                  height: 15,
+                ),
                 FadeInUp(
                     delay: Duration(milliseconds: 300),
                     duration: Duration(milliseconds: 1500),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text("Already have an account?"),
-                        Text(
-                          " Login",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 18),
-                        ),
-                      ],
-                    )),
+                    child: Center(
+                        child: RichText(
+                      text: TextSpan(
+                          text: "Already have an Account ? ",
+                          style: TextStyle(color: Colors.black, fontSize: 14),
+                          children: [
+                            TextSpan(
+                                text: "Login",
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                recognizer: _gestureRecognizer)
+                          ]),
+                    ))),
               ],
             ),
           ),

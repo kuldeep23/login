@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:login/signup.dart';
 import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatelessWidget {
@@ -8,6 +10,11 @@ class LoginPage extends StatelessWidget {
   final TextEditingController pwdController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final TapGestureRecognizer _gestureRecognizer = TapGestureRecognizer()
+      ..onTap = () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => SignupPage()));
+      };
     bool passwordVisible = false;
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -28,10 +35,8 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: double.infinity,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Expanded(
               child: Column(
@@ -178,16 +183,23 @@ class LoginPage extends StatelessWidget {
                   FadeInUp(
                       delay: Duration(milliseconds: 600),
                       duration: Duration(milliseconds: 1500),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text("Don't have an account? "),
-                          Text(
-                            "Sign up",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 18),
-                          ),
-                        ],
+                      child: Center(
+                        child: RichText(
+                          text: TextSpan(
+                              text: "Don't have an Account ? ",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 14),
+                              children: [
+                                TextSpan(
+                                    text: "Register",
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    recognizer: _gestureRecognizer)
+                              ]),
+                        ),
                       ))
                 ],
               ),

@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
                       )),
                 ],
               ),
-              FadeInUp(
+              FadeInDown(
                   delay: Duration(milliseconds: 300),
                   duration: Duration(milliseconds: 1500),
                   child: Container(
@@ -61,7 +61,7 @@ class HomePage extends StatelessWidget {
                   )),
               Column(
                 children: <Widget>[
-                  FadeInUp(
+                  FadeInDown(
                       delay: Duration(milliseconds: 300),
                       duration: Duration(milliseconds: 1500),
                       child: MaterialButton(
