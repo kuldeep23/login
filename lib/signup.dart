@@ -1,16 +1,40 @@
+import 'dart:convert';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:iconsax/iconsax.dart';
 import 'package:login/login.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
+  @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  List data = [];
+  String? dropdownValue;
+  String defaultValue = "Hello";
+
+  getData() async {
+    final res = await http.get(
+        Uri.parse("https://gatesadmin.000webhostapp.com/society_details.php"));
+    data = jsonDecode(res.body);
+    setState(() {});
+  }
+
   final TextEditingController userController = TextEditingController();
+
   final TextEditingController pwdController = TextEditingController();
+
   final TextEditingController mobController = TextEditingController();
+
   final TextEditingController addressController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    getData();
     final TapGestureRecognizer _gestureRecognizer = TapGestureRecognizer()
       ..onTap = () {
         Navigator.push(
@@ -37,11 +61,10 @@ class SignupPage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 25),
-            height: MediaQuery.of(context).size.height / 1.5,
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Column(
                   children: <Widget>[
@@ -71,6 +94,62 @@ class SignupPage extends StatelessWidget {
                 ),
                 Column(
                   children: <Widget>[
+                    //Society Name
+                    FadeInUp(
+                      delay: Duration(milliseconds: 300),
+                      duration: Duration(milliseconds: 1500),
+                      child: Container(
+                        child: InputDecorator(
+                          decoration: InputDecoration(
+                              labelText: "Select Society",
+                              labelStyle: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400),
+                              prefixIcon: Icon(
+                                Iconsax.home,
+                                color: Colors.black,
+                                size: 18,
+                              ),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 10),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Colors.grey.shade200, width: 2),
+                                  borderRadius: BorderRadius.circular(10)),
+                              floatingLabelStyle: TextStyle(
+                                  color: Color(0xffFF6663), fontSize: 18),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Color(0xffFF6663), width: 1.5),
+                                  borderRadius: BorderRadius.circular(10))),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                                value: dropdownValue == null
+                                    ? null
+                                    : dropdownValue,
+                                elevation: 8,
+                                isDense: true,
+                                items: data.map((e) {
+                                  return DropdownMenuItem<String>(
+                                    child: Text(e["soc_name"]),
+                                    value: e["soc_name"],
+                                  );
+                                }).toList(),
+                                onChanged: (value) {
+                                  //_valud = value as int;
+                                  print(value);
+                                  setState(() {
+                                    dropdownValue = value.toString()!;
+                                  });
+                                }),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 25,
+                    ),
                     //Username
                     FadeInUp(
                       delay: Duration(milliseconds: 300),
