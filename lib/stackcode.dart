@@ -27,7 +27,7 @@ class _StackcodeState extends State<Stackcode> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 30),
+          padding: const EdgeInsets.symmetric(vertical: 30),
           child: Column(
             children: [
               Row(
@@ -41,11 +41,12 @@ class _StackcodeState extends State<Stackcode> {
                           Material(
                             shadowColor: Colors.grey,
                             elevation: 20,
-                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(50)),
                             child: Container(
                               height: 100,
                               width: 100,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.deepOrange,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
@@ -64,7 +65,7 @@ class _StackcodeState extends State<Stackcode> {
                                     borderRadius: BorderRadius.circular(30),
                                     border: Border.all(
                                         color: Colors.red, width: 2)),
-                                child: Text(
+                                child: const Text(
                                   "1",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -80,11 +81,12 @@ class _StackcodeState extends State<Stackcode> {
                         children: <Widget>[
                           Material(
                             elevation: 10,
-                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(50)),
                             child: Container(
                               height: 100,
                               width: 100,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.deepOrange,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
@@ -103,7 +105,7 @@ class _StackcodeState extends State<Stackcode> {
                                     borderRadius: BorderRadius.circular(30),
                                     border: Border.all(
                                         color: Colors.red, width: 2)),
-                                child: Text(
+                                child: const Text(
                                   "1",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -119,11 +121,12 @@ class _StackcodeState extends State<Stackcode> {
                         children: <Widget>[
                           Material(
                             elevation: 10,
-                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(50)),
                             child: Container(
                               height: 100,
                               width: 100,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.deepOrange,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
@@ -142,7 +145,7 @@ class _StackcodeState extends State<Stackcode> {
                                     borderRadius: BorderRadius.circular(30),
                                     border: Border.all(
                                         color: Colors.red, width: 2)),
-                                child: Text(
+                                child: const Text(
                                   "1",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -153,7 +156,7 @@ class _StackcodeState extends State<Stackcode> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Row(
@@ -166,11 +169,12 @@ class _StackcodeState extends State<Stackcode> {
                         children: <Widget>[
                           Material(
                             elevation: 10,
-                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(50)),
                             child: Container(
                               height: 100,
                               width: 100,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.deepOrange,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
@@ -189,7 +193,7 @@ class _StackcodeState extends State<Stackcode> {
                                     borderRadius: BorderRadius.circular(30),
                                     border: Border.all(
                                         color: Colors.red, width: 2)),
-                                child: Text(
+                                child: const Text(
                                   "1",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -205,11 +209,12 @@ class _StackcodeState extends State<Stackcode> {
                         children: <Widget>[
                           Material(
                             elevation: 10,
-                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(50)),
                             child: Container(
                               height: 100,
                               width: 100,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.deepOrange,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
@@ -228,7 +233,7 @@ class _StackcodeState extends State<Stackcode> {
                                     borderRadius: BorderRadius.circular(30),
                                     border: Border.all(
                                         color: Colors.red, width: 2)),
-                                child: Text(
+                                child: const Text(
                                   "1",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -244,11 +249,12 @@ class _StackcodeState extends State<Stackcode> {
                         children: <Widget>[
                           Material(
                             elevation: 10,
-                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(50)),
                             child: Container(
                               height: 100,
                               width: 100,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.deepOrange,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
@@ -267,7 +273,7 @@ class _StackcodeState extends State<Stackcode> {
                                     borderRadius: BorderRadius.circular(30),
                                     border: Border.all(
                                         color: Colors.red, width: 2)),
-                                child: Text(
+                                child: const Text(
                                   "1",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -278,34 +284,34 @@ class _StackcodeState extends State<Stackcode> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: InputDecorator(
                   decoration: InputDecoration(
                       labelText: "Select Society",
-                      labelStyle: TextStyle(
+                      labelStyle: const TextStyle(
                           color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.w400),
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Iconsax.home,
                         color: Colors.black,
                         size: 18,
                       ),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 10),
                       enabledBorder: OutlineInputBorder(
                           borderSide:
                               BorderSide(color: Colors.grey.shade200, width: 2),
                           borderRadius: BorderRadius.circular(10)),
-                      floatingLabelStyle:
-                          TextStyle(color: Color(0xffFF6663), fontSize: 18),
+                      floatingLabelStyle: const TextStyle(
+                          color: Color(0xffFF6663), fontSize: 18),
                       focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Color(0xffFF6663), width: 1.5),
+                          borderSide: const BorderSide(
+                              color: Color(0xffFF6663), width: 1.5),
                           borderRadius: BorderRadius.circular(10))),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(

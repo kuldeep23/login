@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,19 +27,19 @@ class HomePage extends StatelessWidget {
               Column(
                 children: <Widget>[
                   FadeInDown(
-                      delay: Duration(milliseconds: 100),
-                      duration: Duration(milliseconds: 1500),
-                      child: Text(
+                      delay: const Duration(milliseconds: 100),
+                      duration: const Duration(milliseconds: 1500),
+                      child: const Text(
                         "Welcome to SECURE GATES",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 25),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   FadeInDown(
-                      delay: Duration(milliseconds: 100),
-                      duration: Duration(milliseconds: 1500),
+                      delay: const Duration(milliseconds: 100),
+                      duration: const Duration(milliseconds: 1500),
                       child: Text(
                         "Your Society, Our Expertise",
                         textAlign: TextAlign.center,
@@ -48,8 +48,8 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               FadeInDown(
-                  delay: Duration(milliseconds: 300),
-                  duration: Duration(milliseconds: 1500),
+                  delay: const Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 1500),
                   child: Container(
                     child: SizedBox(
                       height: 300,
@@ -62,8 +62,8 @@ class HomePage extends StatelessWidget {
               Column(
                 children: <Widget>[
                   FadeInDown(
-                      delay: Duration(milliseconds: 300),
-                      duration: Duration(milliseconds: 1500),
+                      delay: const Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 1500),
                       child: MaterialButton(
                         minWidth: double.infinity,
                         height: 60,
@@ -74,25 +74,25 @@ class HomePage extends StatelessWidget {
                                   builder: (context) => LoginPage()));
                         },
                         shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.black),
+                            side: const BorderSide(color: Colors.black),
                             borderRadius: BorderRadius.circular(50)),
-                        child: Text(
+                        child: const Text(
                           "Login",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 18),
                         ),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   FadeInUp(
-                      delay: Duration(milliseconds: 300),
-                      duration: Duration(milliseconds: 1500),
+                      delay: const Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 1500),
                       child: Container(
-                        padding: EdgeInsets.only(top: 3, left: 3),
+                        padding: const EdgeInsets.only(top: 3, left: 3),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            border: Border(
+                            border: const Border(
                               bottom: BorderSide(color: Colors.black),
                               top: BorderSide(color: Colors.black),
                               left: BorderSide(color: Colors.black),
@@ -107,11 +107,11 @@ class HomePage extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) => SignupPage()));
                           },
-                          color: Color(0xffFF6663),
+                          color: const Color(0xffFF6663),
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50)),
-                          child: Text(
+                          child: const Text(
                             "Sign up",
                             style: TextStyle(
                                 color: Colors.white,

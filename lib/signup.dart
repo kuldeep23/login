@@ -24,13 +24,11 @@ class _SignupPageState extends State<SignupPage> {
     setState(() {});
   }
 
-  final TextEditingController userController = TextEditingController();
-
-  final TextEditingController pwdController = TextEditingController();
-
+  final TextEditingController firtsNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
   final TextEditingController mobController = TextEditingController();
-
-  final TextEditingController addressController = TextEditingController();
+  final TextEditingController pwdController = TextEditingController();
+  final TextEditingController flatHouseController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,13 +43,12 @@ class _SignupPageState extends State<SignupPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        brightness: Brightness.light,
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             size: 20,
             color: Colors.black,
@@ -61,7 +58,7 @@ class _SignupPageState extends State<SignupPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: Column(
@@ -69,19 +66,19 @@ class _SignupPageState extends State<SignupPage> {
                 Column(
                   children: <Widget>[
                     FadeInDown(
-                        delay: Duration(milliseconds: 300),
-                        duration: Duration(milliseconds: 1500),
-                        child: Text(
+                        delay: const Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 1500),
+                        child: const Text(
                           "Sign up",
                           style: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     FadeInDown(
-                        delay: Duration(milliseconds: 300),
-                        duration: Duration(milliseconds: 1500),
+                        delay: const Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 1500),
                         child: Text(
                           "Fill all the Mandatory details",
                           style:
@@ -89,145 +86,171 @@ class _SignupPageState extends State<SignupPage> {
                         )),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Column(
                   children: <Widget>[
                     //Society Name
                     FadeInUp(
-                      delay: Duration(milliseconds: 300),
-                      duration: Duration(milliseconds: 1500),
-                      child: Container(
-                        child: InputDecorator(
-                          decoration: InputDecoration(
-                              labelText: "Select Society",
-                              labelStyle: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400),
-                              prefixIcon: Icon(
-                                Iconsax.home,
-                                color: Colors.black,
-                                size: 18,
-                              ),
-                              contentPadding: EdgeInsets.symmetric(
-                                  vertical: 0, horizontal: 10),
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.grey.shade200, width: 2),
-                                  borderRadius: BorderRadius.circular(10)),
-                              floatingLabelStyle: TextStyle(
-                                  color: Color(0xffFF6663), fontSize: 18),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Color(0xffFF6663), width: 1.5),
-                                  borderRadius: BorderRadius.circular(10))),
-                          child: DropdownButtonHideUnderline(
-                            child: DropdownButton<String>(
-                                value: dropdownValue == null
-                                    ? null
-                                    : dropdownValue,
-                                elevation: 8,
-                                isDense: true,
-                                items: data.map((e) {
-                                  return DropdownMenuItem<String>(
-                                    child: Text(e["soc_name"]),
-                                    value: e["soc_name"],
-                                  );
-                                }).toList(),
-                                onChanged: (value) {
-                                  //_valud = value as int;
-                                  print(value);
-                                  setState(() {
-                                    dropdownValue = value.toString()!;
-                                  });
-                                }),
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 25,
-                    ),
-                    //Username
-                    FadeInUp(
-                      delay: Duration(milliseconds: 300),
-                      duration: Duration(milliseconds: 1500),
-                      child: TextField(
-                        controller: userController,
+                      delay: const Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 1500),
+                      child: InputDecorator(
                         decoration: InputDecoration(
-                            labelText: "Username",
-                            labelStyle: TextStyle(
+                            labelText: "Select Society",
+                            labelStyle: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400),
-                            prefixIcon: Icon(
-                              Iconsax.user,
+                            prefixIcon: const Icon(
+                              Iconsax.home,
                               color: Colors.black,
                               size: 18,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 0, horizontal: 10),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Colors.grey.shade200, width: 2),
                                 borderRadius: BorderRadius.circular(10)),
-                            floatingLabelStyle: TextStyle(
+                            floatingLabelStyle: const TextStyle(
                                 color: Color(0xffFF6663), fontSize: 18),
                             focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xffFF6663), width: 1.5),
                                 borderRadius: BorderRadius.circular(10))),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<String>(
+                              value: dropdownValue,
+                              elevation: 8,
+                              isDense: true,
+                              items: data.map((e) {
+                                return DropdownMenuItem<String>(
+                                  value: e["soc_name"],
+                                  child: Text(e["soc_name"]),
+                                );
+                              }).toList(),
+                              onChanged: (value) {
+                                //_valud = value as int;
+
+                                setState(() {
+                                  dropdownValue = value.toString()!;
+                                });
+                              }),
+                        ),
                       ),
                     ),
-                    SizedBox(
-                      height: 25,
+                    const SizedBox(
+                      height: 15,
                     ),
-                    //Password
+
+                    //Username
                     FadeInUp(
-                      delay: Duration(milliseconds: 400),
-                      duration: Duration(milliseconds: 1500),
+                      delay: const Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 1500),
                       child: TextField(
-                        controller: pwdController,
-                        // obscureText: passwordVisible,
+                        controller: firtsNameController,
                         decoration: InputDecoration(
-                            labelText: "Password",
-                            labelStyle: TextStyle(
+                            labelText: "Owner/Tenant",
+                            labelStyle: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400),
-                            prefixIcon: Icon(
-                              Iconsax.key,
+                            prefixIcon: const Icon(
+                              Iconsax.user,
                               color: Colors.black,
                               size: 18,
                             ),
-                            suffixIcon: Icon(
-                              Iconsax.eye,
-                              color: Colors.black,
-                              size: 18,
-                            ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 0, horizontal: 10),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: Colors.grey.shade300, width: 2),
+                                    color: Colors.grey.shade200, width: 2),
                                 borderRadius: BorderRadius.circular(10)),
-                            floatingLabelStyle: TextStyle(
+                            floatingLabelStyle: const TextStyle(
                                 color: Color(0xffFF6663), fontSize: 18),
                             focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xffFF6663), width: 1.5),
                                 borderRadius: BorderRadius.circular(10))),
                       ),
                     ),
-                    SizedBox(
-                      height: 25,
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    //Username
+                    FadeInUp(
+                      delay: const Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 1500),
+                      child: TextField(
+                        controller: firtsNameController,
+                        decoration: InputDecoration(
+                            labelText: "Resident First Name",
+                            labelStyle: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                            prefixIcon: const Icon(
+                              Iconsax.user,
+                              color: Colors.black,
+                              size: 18,
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 0, horizontal: 10),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey.shade200, width: 2),
+                                borderRadius: BorderRadius.circular(10)),
+                            floatingLabelStyle: const TextStyle(
+                                color: Color(0xffFF6663), fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xffFF6663), width: 1.5),
+                                borderRadius: BorderRadius.circular(10))),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    //Username
+                    FadeInUp(
+                      delay: const Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 1500),
+                      child: TextField(
+                        controller: lastNameController,
+                        decoration: InputDecoration(
+                            labelText: "Resident Last Name",
+                            labelStyle: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                            prefixIcon: const Icon(
+                              Iconsax.user,
+                              color: Colors.black,
+                              size: 18,
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 0, horizontal: 10),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey.shade200, width: 2),
+                                borderRadius: BorderRadius.circular(10)),
+                            floatingLabelStyle: const TextStyle(
+                                color: Color(0xffFF6663), fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xffFF6663), width: 1.5),
+                                borderRadius: BorderRadius.circular(10))),
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 15,
                     ),
                     //Mobile
                     FadeInUp(
-                      delay: Duration(milliseconds: 400),
-                      duration: Duration(milliseconds: 1500),
+                      delay: const Duration(milliseconds: 400),
+                      duration: const Duration(milliseconds: 1500),
                       child: TextField(
                         controller: mobController,
                         maxLength: 10,
@@ -235,80 +258,120 @@ class _SignupPageState extends State<SignupPage> {
                         // obscureText: passwordVisible,
                         decoration: InputDecoration(
                             labelText: "Mobile No",
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400),
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Iconsax.call,
                               color: Colors.black,
                               size: 18,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 0, horizontal: 10),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Colors.grey.shade300, width: 2),
                                 borderRadius: BorderRadius.circular(10)),
-                            floatingLabelStyle: TextStyle(
+                            floatingLabelStyle: const TextStyle(
                                 color: Color(0xffFF6663), fontSize: 18),
                             focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xffFF6663), width: 1.5),
                                 borderRadius: BorderRadius.circular(10))),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
-                    //Address
+                    //Password
                     FadeInUp(
-                      delay: Duration(milliseconds: 400),
-                      duration: Duration(milliseconds: 1500),
+                      delay: const Duration(milliseconds: 400),
+                      duration: const Duration(milliseconds: 1500),
                       child: TextField(
-                        controller: addressController,
-                        textCapitalization: TextCapitalization.words,
-                        keyboardType: TextInputType.visiblePassword,
+                        controller: pwdController,
                         // obscureText: passwordVisible,
                         decoration: InputDecoration(
-                            labelText: "Address",
-                            labelStyle: TextStyle(
+                            labelText: "Password",
+                            labelStyle: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400),
-                            prefixIcon: Icon(
-                              Iconsax.home,
+                            prefixIcon: const Icon(
+                              Iconsax.key,
                               color: Colors.black,
                               size: 18,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            suffixIcon: const Icon(
+                              Iconsax.eye,
+                              color: Colors.black,
+                              size: 18,
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 0, horizontal: 10),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Colors.grey.shade300, width: 2),
                                 borderRadius: BorderRadius.circular(10)),
-                            floatingLabelStyle: TextStyle(
+                            floatingLabelStyle: const TextStyle(
                                 color: Color(0xffFF6663), fontSize: 18),
                             focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xffFF6663), width: 1.5),
+                                borderRadius: BorderRadius.circular(10))),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    //Address
+                    FadeInUp(
+                      delay: const Duration(milliseconds: 400),
+                      duration: const Duration(milliseconds: 1500),
+                      child: TextField(
+                        controller: flatHouseController,
+                        textCapitalization: TextCapitalization.words,
+                        keyboardType: TextInputType.visiblePassword,
+                        // obscureText: passwordVisible,
+                        decoration: InputDecoration(
+                            labelText: "Flat/House No",
+                            labelStyle: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                            prefixIcon: const Icon(
+                              Iconsax.home,
+                              color: Colors.black,
+                              size: 18,
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 0, horizontal: 10),
+                            enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
+                                    color: Colors.grey.shade300, width: 2),
+                                borderRadius: BorderRadius.circular(10)),
+                            floatingLabelStyle: const TextStyle(
+                                color: Color(0xffFF6663), fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
                                     color: Color(0xffFF6663), width: 1.5),
                                 borderRadius: BorderRadius.circular(10))),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 //SignUpButton
                 FadeInUp(
-                    delay: Duration(milliseconds: 300),
-                    duration: Duration(milliseconds: 1500),
+                    delay: const Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 1500),
                     child: Container(
-                      padding: EdgeInsets.only(top: 3, left: 3),
+                      padding: const EdgeInsets.only(top: 3, left: 3),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
-                          border: Border(
+                          border: const Border(
                             bottom: BorderSide(color: Colors.black),
                             top: BorderSide(color: Colors.black),
                             left: BorderSide(color: Colors.black),
@@ -317,17 +380,12 @@ class _SignupPageState extends State<SignupPage> {
                       child: MaterialButton(
                         minWidth: double.infinity,
                         height: 60,
-                        onPressed: () {
-                          print(userController.text);
-                          print(pwdController.text);
-                          print(mobController.text);
-                          print(addressController.text);
-                        },
-                        color: Color(0xffFF6663),
+                        onPressed: () {},
+                        color: const Color(0xffFF6663),
                         elevation: 0,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(50)),
-                        child: Text(
+                        child: const Text(
                           "Sign up",
                           style: TextStyle(
                               color: Colors.white,
@@ -336,21 +394,22 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 FadeInUp(
-                    delay: Duration(milliseconds: 300),
-                    duration: Duration(milliseconds: 1500),
+                    delay: const Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 1500),
                     child: Center(
                         child: RichText(
                       text: TextSpan(
                           text: "Already have an Account ? ",
-                          style: TextStyle(color: Colors.black, fontSize: 14),
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 14),
                           children: [
                             TextSpan(
                                 text: "Login",
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.red,
                                   fontSize: 17,
                                   fontWeight: FontWeight.bold,
